@@ -1,6 +1,6 @@
 #/usr/bin/bash
 #
-# Simplified listing of image duplicates
+# Simplified listing of image duplicates in a directory
 # Version 0.0.0.1
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
@@ -8,6 +8,15 @@
 # Prerequisite:
 #     Installation of package findimagedupes:
 #     sudo apt-get install findimagedupes
+#
+# Description:
+# findimagedupes finds one or more duplicates of the same or a similar image.
+# The output of findimagedupes returns the entire path to a duplicate. This
+# makes the output of findimagedupes unreadable. This script reads each output
+# line of findimagedupes with the duplicates in a loop. The script loops over
+# the specified string array. Then the file name is extracted from the path.
+# Each set of duplicates is printed line by line. When the script is finished,
+# it prints out how many duplicate images were found.
 #
 # References:
 # http://www.jhnc.org/findimagedupes/
@@ -34,7 +43,7 @@ do
         printf "%s%b" "$fn" "\n"
     done
     echo ""
-done < <(findimagedupes *.* 2>/dev/null)
+done < <(findimagedupes *.* 2>/dev/null) # Warnings from findimagedupes are redirect to null
 
 # Print how much duplicates were found.
 if [ "${count}" -eq 0 ]; then
