@@ -12,7 +12,7 @@
 # md5 hash value.
 
 # Set the file type extension.
-FILES=("*.jpg"  "*.JPG" "*.jpeg" "*.JPEG" "*.png" "*.PNG")
+FILES=("*.jpg" "*.JPG" "*.jpeg" "*.JPEG" "*.png" "*.PNG")
 
 # Set the global EXIF data strings.
 CREATOR="zentrocdot"
