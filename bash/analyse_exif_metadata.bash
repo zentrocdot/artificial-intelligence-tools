@@ -1,14 +1,13 @@
 #!/usr/bin/bash
 # shellcheck disable=SC1083
 #
-# Extract exif data from image.
+# Extract exif metadata from image.
 # Version 0.0.0.4
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
-# Version 0.0.0.1
 #
 # Description:
-# Extract slected exif data from image file.
+# Extract selected EXIF metadata from a given image file.
 #
 # Prerequisite:
 # Installation of exiftool
