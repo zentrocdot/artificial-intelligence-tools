@@ -7,7 +7,6 @@
 # Version 0.0.0.5
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
-# Version 0.0.0.1
 #
 # Description:
 # Extract slected exif data from image file.
