@@ -14,4 +14,4 @@
 
 [2] https://github.com/easydiffusion/easydiffusion
 
-[3] https://stability.ai/
+[3] https://github.com/Stability-AI/stablediffusion
