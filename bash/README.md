@@ -2,9 +2,11 @@
 
 <p align="justify">This subdirectory only contains <code>Bash</code> scripts that I use to prepare AI generated images for minting as NFTs.</p> 
 
-# Explanation
+# Bash Scripts
 
 ## <code>analyse_exif_metadata.bash</code>
+
+### Explanation
 
 <p align="justify">The task of the script <code>analyse_exif_metadata.bash</code> is to analyse the EXIF metadata in an given image. On the one hand, the script should ensure that the correct EXIF metadata is contained in the image before publication as NFT. On the second hand, the extracted, determined and calculated data is required in the publishing process as NFT.</p> 
 
@@ -18,7 +20,9 @@ Some of my traits are:
 - Aspect Ratio (e.g. 2:3, 19:9, 1:1)
 - Wallpaper (e.g. Yes, No or Unknown)
 
-<p align="justify">Category will be extracted from my EXIF metadata. Orientation is derived from the data. Aspect Ratio values and Wallpaper string are calculated.</p>   
+<p align="justify">Category will be extracted from my EXIF metadata. Orientation is derived from the data. Aspect Ratio values and Wallpaper string are calculated.</p>  
+
+### Sample Printout
 
 An example printout looks like this
 
@@ -27,7 +31,7 @@ An example printout looks like this
 EXIF Metadata Analysis
 **********************
 
-Filename:                   0f8acf268f58060702f32ef0d51bcfb4.jpg
+Filename:                   0f8acf268f58060702f32ef0d51bcfb4.jpeg
 MD5 Hash:                   0f8acf268f58060702f32ef0d51bcfb4
 AI Generator (EVAL):        Stable Diffusion
 AI Web UI (EVAL):           AUTOMATIC1111
@@ -54,6 +58,14 @@ Wallpaper: (CALC)           Yes
 Have a nice day. Bye!</pre>
 
 <p align="justify">The previous printout shows an open problem I have. File type, file type extension and mime type are inconsistent. This has to be checked.</p>
+
+<p align="justify">Technically speaking, JPG and JPEG are exactly the same thing.</p>
+
+
+
+### TO-DO
+
+### Finel Remark
 
 <p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
 
