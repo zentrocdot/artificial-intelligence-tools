@@ -75,7 +75,7 @@ Have a nice day. Bye!</pre>
 
 <p align="justify">The script calculates the aspect ratio of an image using the greatest common divisor.</p>
 
-<p align="justify">If the aspect ratio *x:y is in a range of 1.2 upt to 1.8, where x is the large value and y is the small value, it is calculated if the image can be used as wallpaper.</p>
+<p align="justify">If the aspect ratio *x:y* is in a range of 1.2 upt to 1.8, where *x* is the large value and *y* is the small value, it is calculated if the image can be used as wallpaper.</p>
 
 ### Final Remark
 
