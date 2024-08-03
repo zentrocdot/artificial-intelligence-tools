@@ -63,11 +63,19 @@ Have a nice day. Bye!</pre>
 
 ### Side Note
 
-<p align="justify">Stable Diffusion uses the file type extension .jpeg for writing images. After upload to the IPFS, the image has the file type extension .jpg. Extract Encoding Process and Megapixels for documentation purposes.</p>
+<p align="justify">Stable Diffusion uses the file type extension .jpeg for writing images. After upload to the IPFS, the image has the file type extension .jpg.</p>
 
 ### TO-DO
 
-<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. </p>
+<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. On mismatch write an error to the terminal. Extract Encoding Process and Megapixels for documentation purposes.</p>
+
+### Special Features
+
+<p align="justify">I used the first time an ordered associative array in a Bash script. By default an associative array is unordered. by using a trick one can use an unordered associative array as ordered associative array.</p>
+
+<p align="justify">The script calculates the aspect ratio of an image using the greatest common divisor.</p>
+
+<p align="justify">If the aspect ratio x:y is in a range of 1.2 upt to 1.8, where x is the large value and y is the small value, it is calculated if the image can be used as wallpaper.</p>
 
 ### Final Remark
 
