@@ -59,6 +59,7 @@ C2="Avatar Image Collection"
 C3="Cyberpunk Girls Image Collection"
 C4=""
 
+# Declare the associative array for key and value pairs of the collections.
 declare -A collection_array=(["${T1}"]="${C1}" ["${T2}"]="${C2}"
                              ["${T3}"]="${C3}" ["${T4}"]="${C4}")
 
