@@ -53,6 +53,8 @@ Wallpaper: (CALC)           Yes
 
 Have a nice day. Bye!</pre>
 
+<p align="justify">The previous printout shows an open problem I have. File type, file type extension and mime type are inconsistent. This has to be checked.</p>
+
 <p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
 
 # References
@@ -66,27 +68,30 @@ Abbreviation | Description
 :----|:------------------------------|
 AI   | Artificial intelligence
 Bash | Bourne-Again SHell
+CALC | Calculation
+EVAL | Evaluation
 EXIF | Exchangeable Image File Format 
 GB   | Gigabyte
 GiB  | Gibibyte
 IPFS | InterPlanetary File System
+JPG  | Joint Photographic (Experts) Group
+JPEG | Joint Photographic Experts Group
 KB   | Kilobyte
 KiB  | Kibibyte
 MB   | Megabyte
 MiB  | Mebibyte
 NFT  | Non-Fungible Token
+PNG  | Portable Network Graphics
 
 # Glossary
 
 Denotation | Description
-:-----|:---------------------------------------------------------------------------------------------------------------------|
-Trait | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small 
-KB    | 1 KB = 1024 Byte [^1]
-KiB   | 1 KiB = 1000 Byte [^1]
-MB    | 1 MB = 1024 KB [^1]
-MiB   | 1 MiB = 1000 KiB [^1]
+:----------|:--------------------------------------------------------------------------------------------------------------|
+Trait      | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small 
+KB  [^1]   | 1 KB = 1000 Byte 
+KiB        | 1 KiB = 1024 Byte, 1 KiB = 1.024 KB
+MB  [^1]   | 1 MB = 1000 KB
+MiB        | 1 MiB = 1024 KiB, 1 MiB = 1.024 MB
 
-[^1]: Side Note. The designations KiB, KB, MiB and MB must be checked again against implementation in the operating system and against the relevant international standards.
-
-<p align="justify"></p>
+[^1]: Side Note: The designations KiB, KB, MiB and MB must be checked against implementation and usage in the operating system and against the relevant international standards. For my current OS the conversion is consistent. 
 
