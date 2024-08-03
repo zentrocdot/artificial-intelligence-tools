@@ -81,12 +81,12 @@ NFT  | Non-Fungible Token
 Denotation | Description
 :-----|:---------------------------------------------------------------------------------------------------------------------|
 Trait | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small 
-KB    | 1 KB = 1024 Byte
-KiB   | 1 KiB = 1000 Byte
-MB    | 1 MB = 1024 KB
-MiB   | 1 MiB = 1000 KiB
+KB    | 1 KB = 1024 Byte [^1]
+KiB   | 1 KiB = 1000 Byte [^1]
+MB    | 1 MB = 1024 KB [^1]
+MiB   | 1 MiB = 1000 KiB [^1]
 
-* Side Note
+[^1]: Side Note
 
 <p align="justify">The designations KiB, KB, MiB and MB must be checked again against implementation in the operating system and against the relevant international standards.</p>
 
