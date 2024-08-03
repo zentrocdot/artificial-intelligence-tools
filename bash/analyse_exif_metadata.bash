@@ -154,8 +154,6 @@ function get_resolution {
     # Initialise the local variables.
     resolution="Unknown"
     # Loop over the resolution array.
-    x=-1; y=-1
-    # Determine the resolution.
     for i in "${resorders[@]}"
     do
         # Check x and y. Leave loop on match.
@@ -254,7 +252,7 @@ function creator_tool {
     local ui1="Easy Diffusion"
     local ui2="AUTOMATIC1111"
     # Get AI generator.
-    if [[ "${creatortool}" =~ "${ig0}" ]]; then
+    if [[ "${creatortool}" =~ "${ig1}" ]]; then
         generator="${ig1}"
     else
         generator="${ig0}"
@@ -347,9 +345,9 @@ function print_exifdata {
     printf "${fmtstr}" "Creator Tool (EXIF):" "${creatortool}" "\n"
     printf "${fmtstr}" "Comment (EXIF):" "${comment}" "\n"
     printf "${fmtstr}" "User Comment (EXIF):" "${usercomment}" "\n"
-    printf "${fmtstr}" "File Type (EVAL):" "${ft}" "\n"
-    printf "${fmtstr}" "File Type Extension (EVAL):" "${fte}" "\n"
-    printf "${fmtstr}" "Mime Type (EVAL):" "${mt}" "\n"
+    printf "${fmtstr}" "File Type (EXIF):" "${ft}" "\n"
+    printf "${fmtstr}" "File Type Extension (EXIF):" "${fte}" "\n"
+    printf "${fmtstr}" "Mime Type (EXIF):" "${mt}" "\n"
     printf "${fmtstr}" "File Size (MiB):" "${mib} MiB" "\n"
     printf "${fmtstr}" "File Size (MB):" "${mb} MB" "\n"
     printf "${fmtstr}" "Image Width (EXIF):" "${xres}" "\n"
