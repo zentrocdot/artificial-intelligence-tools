@@ -5,8 +5,8 @@ scripts that I use to prepare AI generated images for minting as NFTs.</p>
 
 # Explanation
 
-## <code>analyse_exif_metadata.bash<code>
+## <code>analyse_exif_metadata.bash</code>
 
-<p align="justify">The task of the script <code>analyse_exif_metadata.bash<code>
+<p align="justify">The task of the script <code>analyse_exif_metadata.bash</code>code>
 is to analyse the EXIF metadata in an given image.</p> 
 
