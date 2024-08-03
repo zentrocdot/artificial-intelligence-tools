@@ -15,3 +15,5 @@
 [2] https://github.com/easydiffusion/easydiffusion
 
 [3] https://github.com/Stability-AI/stablediffusion
+
+[4] https://github.com/lllyasviel/stable-diffusion-webui-forge
