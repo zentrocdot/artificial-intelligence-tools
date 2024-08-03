@@ -60,6 +60,7 @@ Have a nice day. Bye!</pre>
 # References
 
 [1] https://opensea.io/
+
 [2] https://rarible.com/
 
 # Abbreviations
