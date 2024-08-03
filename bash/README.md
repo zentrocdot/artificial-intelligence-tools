@@ -67,19 +67,23 @@ Have a nice day. Bye!</pre>
 
 ### TO-DO
 
-<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. On mismatch write an error to the terminal. Extract Encoding Process and Megapixels for documentation purposes.</p>
+<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. On mismatch write an error to the terminal. Extract Encoding Process and Megapixels for documentation purposes. Extracting ExifTool Version Number and Exif Version.</p>
 
 ### Special Features
 
 <p align="justify">I used the first time an ordered associative array in a <code>Bash</code> script. By default an associative array is unordered. by using a trick one can use an unordered associative array as ordered associative array.</p>
 
-<p align="justify">The script calculates the aspect ratio of an image using the greatest common divisor.</p>
+
 
 <p align="justify">If the aspect ratio <it>x:y</it> is in a range of 1.2 upt to 1.8, where  <it>x</it> is the large value and  <it>y</it> is the small value, it is calculated if the image can be used as wallpaper.</p>
 
 ### Final Remark
 
 <p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
+
+## <code>aspect_ratio.bash</code>
+
+<p align="justify">The script <code>aspect_ratio.bash</code> calculates the aspect ratio of a given image using the greatest common divisor.</p>
 
 # References
 
