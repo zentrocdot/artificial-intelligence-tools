@@ -69,11 +69,9 @@ Have a nice day. Bye!</pre>
 
 # References
 
-
-
 [1] [OpenSea](https://opensea.io/)
 
-[2] https://rarible.com/
+[2] [Rarible](https://rarible.com/)
 
 # Abbreviations
 
