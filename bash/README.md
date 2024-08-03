@@ -12,6 +12,11 @@
 
 <p align="justify">The script <code>analyse_exif_metadata.bash</code> extracts, determines and calculates data, which can be used for the previously described Traits.</p>
 
+Some of my traits are:
+- Category
+- Aspect Ratio
+- Wallpaper
+
 An example printout looks like this
 
 <pre>
