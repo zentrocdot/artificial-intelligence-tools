@@ -43,9 +43,8 @@ S1="Low"
 S0="Not Allowed"
 
 # Declare the associative array for key and value pairs of the resolutions.
-declare -A resarray=(["${R4}"]="${S4}" ["${R3}"]="${S3}"
-                     ["${R2}"]="${S2}" ["${R1}"]="${S1}"
-                     ["${R0}"]="${S0}")
+declare -A resarray=(["${R4}"]="${S4}" ["${R3}"]="${S3}" ["${R2}"]="${S2}"
+                     ["${R1}"]="${S1}" ["${R0}"]="${S0}")
 # Declare the orders array for the resolutions. Keeps the order of the associative array.
 declare -a resorders=("${R4}" "${R3}" "${R2}" "${R1}" "${R0}")
 
