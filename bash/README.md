@@ -71,7 +71,7 @@ Have a nice day. Bye!</pre>
 
 
 
-[1] [OpenSea]([https://pages.github.com/](https://opensea.io/))
+[1] [OpenSea](https://opensea.io/)
 
 [2] https://rarible.com/
 
