@@ -11,5 +11,7 @@
 # Abbreviations
 
 Abbreviation | Description
-:---|:---|
-NFT |  Non-Fungible Token
+:----|:------------------------------|
+Bash | Bourne-Again SHell
+NFT  | Non-Fungible Token
+EXIF | Exchangeable Image File Format 
