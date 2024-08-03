@@ -11,5 +11,5 @@
 # Abbreviations
 
 Abbreviation | Description
----|---|
+:---|:---|
 NFT |  Non-Fungible Token
