@@ -52,16 +52,22 @@ Image Size (EXIF):          8192 x 4608 pixel
 Image Size (EVAL):          8192 x 4608 pixel
 Aspect Ratio (CALC):        16:9
 Orientation (EVAL):         Landscape
-Resolution: (EVAL)          Unknown
+Resolution: (EVAL)          High
 Wallpaper: (CALC)           Yes
 
 Have a nice day. Bye!</pre>
 
-<p align="justify">The previous printout shows an open problem I have. File type, file type extension and mime type are inconsistent. This has to be checked.</p>
+<p align="justify">The previous printout shows an open problem I have. File type, file type extension and mime type are inconsistent using <code>exiftool</code>. This has to be checked.</p>
 
 <p align="justify">Technically speaking, JPG and JPEG are exactly the same thing.</p>
 
+### Side Note
+
+<p align="justify">Stable Diffusion uses the file type extension .jpeg for writing images. After upload to the IPFS, the image has the file type extension .jpg. Extract Encoding Process and Megapixels for documentation purposes.</p>
+
 ### TO-DO
+
+<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. </p>
 
 ### Final Remark
 
