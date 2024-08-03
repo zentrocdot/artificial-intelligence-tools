@@ -86,7 +86,7 @@ KiB   | 1 KiB = 1000 Byte [^1]
 MB    | 1 MB = 1024 KB [^1]
 MiB   | 1 MiB = 1000 KiB [^1]
 
-[^1]: Side Note
+[^1]: Side Note. The designations KiB, KB, MiB and MB must be checked again against implementation in the operating system and against the relevant international standards.
 
-<p align="justify">The designations KiB, KB, MiB and MB must be checked again against implementation in the operating system and against the relevant international standards.</p>
+<p align="justify"></p>
 
