@@ -73,7 +73,7 @@ Have a nice day. Bye!</pre>
 
 <p align="justify">I used the first time an ordered associative array in a <code>Bash</code> script. By default an associative array is unordered. by using a trick one can use an unordered associative array as ordered associative array.</p>
 
-
+<p align="justify">The aspect ratio of a given image is calculatied using the greatest common divisor of width and height of the image.</p>
 
 <p align="justify">If the aspect ratio <it>x:y</it> is in a range of 1.2 upt to 1.8, where  <it>x</it> is the large value and  <it>y</it> is the small value, it is calculated if the image can be used as wallpaper.</p>
 
@@ -100,6 +100,7 @@ Bash | Bourne-Again SHell
 CALC | Calculation
 EVAL | Evaluation
 EXIF | Exchangeable Image File Format 
+GCD  | Greatest Common Divisor
 GB   | Gigabyte
 GiB  | Gibibyte
 IPFS | InterPlanetary File System
