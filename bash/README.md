@@ -8,10 +8,18 @@
 
 <p align="justify">The task of the script <code>analyse_exif_metadata.bash</code> is to analyse the EXIF metadata in an given image. On the one hand, the script should ensure that the correct EXIF metadata is contained in the image before publication as NFT. On the second hand, the extracted, determined and calculated data is required in the publishing process as NFT.</p> 
 
+<p align="justify">To mine an NFT, you need e.g. a local installation or you can use an Internet service like OpenSea [1] or Rarible [2]. The first involves a lot of effort. The second is quick and easy.</p> 
+
+# References
+
+[1] https://opensea.io/
+[2] https://rarible.com/
+
 # Abbreviations
 
 Abbreviation | Description
 :----|:------------------------------|
+AI   | Artificial intelligence
 Bash | Bourne-Again SHell
 NFT  | Non-Fungible Token
 EXIF | Exchangeable Image File Format 
