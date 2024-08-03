@@ -6,7 +6,7 @@
 
 ## Software in Use
 
-<p align="justify">I am currently using Stable Diffusion as AI Generator and Easy Diffusion and AUTOMATIC1111 as AI Web UI.</p>  
+<p align="justify">I am currently using <code>Stable Diffusion</code> as AI Generator and <code>Easy Diffusion</code> [2] and <code>AUTOMATIC1111</code> [1] as AI Web UI.</p>  
 
 # References
 
