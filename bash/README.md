@@ -61,17 +61,17 @@ Have a nice day. Bye!</pre>
 
 <p align="justify">Technically speaking, JPG and JPEG are exactly the same thing.</p>
 
-
-
 ### TO-DO
 
-### Finel Remark
+### Final Remark
 
 <p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
 
 # References
 
-[1] https://opensea.io/
+
+
+[1] [OpenSea]([https://pages.github.com/](https://opensea.io/))
 
 [2] https://rarible.com/
 
