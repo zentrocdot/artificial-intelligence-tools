@@ -67,6 +67,8 @@ Abbreviation | Description
 AI   | Artificial intelligence
 Bash | Bourne-Again SHell
 EXIF | Exchangeable Image File Format 
+GB   | Gigabyte
+GiB  | Gibibyte
 IPFS | InterPlanetary File System
 KB   | Kilobyte
 KiB  | Kibibyte
