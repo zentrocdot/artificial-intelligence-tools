@@ -13,9 +13,12 @@
 <p align="justify">The script <code>analyse_exif_metadata.bash</code> extracts, determines and calculates data, which can be used for the previously described Traits.</p>
 
 Some of my traits are:
-- Category
-- Aspect Ratio
-- Wallpaper
+- Category (e.g. Avatar, Vehicle, Mushroom)
+- Orientation (e.g. Portrait, Landscape or None)
+- Aspect Ratio (e.g. 2:3, 19:9, 1:1)
+- Wallpaper (e.g. Yes, No or Unknown)
+
+<p align="justify">Category will be extracted from my EXIF metadata. Orientation is derived from the data. Aspect Ratio values and Wallpaper string are calculated.</p>   
 
 An example printout looks like this
 
@@ -34,9 +37,9 @@ Creator: (EXIF)             zentrocdot
 Creator Tool (EXIF):        AI Generator Stable Diffusion, AI WebUI AUTOMATIC1111
 Comment (EXIF):             Fantastic Mushroom Collection
 User Comment (EXIF):        Selected image for minting as NFT
-File Type (EVAL):           JPEG
-File Type Extension (EVAL): jpg
-Mime Type (EVAL):           image/jpeg
+File Type (EXIF):           JPEG
+File Type Extension (EXIF): jpg
+Mime Type (EXIF):           image/jpeg
 File Size (MiB):            3.5 MiB
 File Size (MB):             3.7 MB
 Image Width (EXIF):         8192
@@ -48,8 +51,7 @@ Orientation (EVAL):         Landscape
 Resolution: (EVAL)          Unknown
 Wallpaper: (CALC)           Yes
 
-Have a nice day. Bye!
-  </pre>
+Have a nice day. Bye!</pre>
 
 <p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
 
@@ -66,11 +68,23 @@ AI   | Artificial intelligence
 Bash | Bourne-Again SHell
 EXIF | Exchangeable Image File Format 
 IPFS | InterPlanetary File System
+KB   | Kilobyte
+KiB  | Kibibyte
+MB   | Megabyte
+MiB  | Mebibyte
 NFT  | Non-Fungible Token
 
 # Glossary
 
 Denotation | Description
 :-----|:---------------------------------------------------------------------------------------------------------------------|
-Trait | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small  
+Trait | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small 
+KB    | 1 KB = 1024 Byte
+KiB   | 1 KiB = 1000 Byte
+MB    | 1 MB = 1024 KB
+MiB   | 1 MiB = 1000 KiB
+
+* Side Note
+
+<p align="justify">The designations KiB, KB, MiB and MB must be checked again against implementation in the operating system and against the relevant international standards.</p>
 
