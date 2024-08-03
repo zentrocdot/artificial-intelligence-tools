@@ -4,7 +4,7 @@
 # shellcheck disable=SC2059
 #
 # Extract exif metadata from image.
-# Version 0.0.0.5
+# Version 0.0.0.9
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -14,6 +14,10 @@
 # Prerequisite:
 # Installation of exiftool
 # sudo apt-get install exiftool
+#
+# Development Environment:
+# Linux 5.15.0-117-generic #127-Ubuntu SMP Fri Jul 5 20:13:28 UTC 2024 x86_64 GNU/Linux
+# Linuxmint, Linux Mint 21.3, Virginia
 
 # Get the filename from the command line.
 FN=$1
@@ -27,18 +31,65 @@ if [ ! -f "${FN}" ]; then
 fi
 
 # Initialise the boundary key and value variables.
-K4=8192
-K3=4096
-K2=2048
-K1=512
-V4="Ultra High"
-V3="High"
-V2="Medium"
-V1="Low"
+R4=8192  # or higher -> Ultra High
+R3=4096  # or higher -> High
+R2=2048  # or higher -> Medium
+R1=512   # or higher -> Low
+R0=0     # or higher -> Not Allowed
+S4="Ultra High"
+S3="High"
+S2="Medium"
+S1="Low"
+S0="Not Allowed"
 
-# Declare the associative array for key and value of the resolutions.
-declare -A associative_array=(["${K4}"]="${V4}" ["${K3}"]="${V3}"
-                              ["${K2}"]="${V2}" ["${K1}"]="${V1}")
+# Declare the associative array for key and value pairs of the resolutions.
+declare -A resarray=(["${R4}"]="${S4}" ["${R3}"]="${S3}"
+                     ["${R2}"]="${S2}" ["${R1}"]="${S1}"
+                     ["${R0}"]="${S0}")
+# Declare the orders array for the resolutions. Keeps the order of the associative array.
+declare -a resorders=("${R4}" "${R3}" "${R2}" "${R1}" "${R0}")
+
+# Set collection key and value variables.
+T1="Mushroom"
+T2="Avatar"
+T3="Cyberpunk Girls"
+T4=""
+C1="Fantastic Mushroom Collection"
+C2="Avatar Image Collection"
+C3="Cyberpunk Girls Image Collection"
+C4=""
+
+declare -A collection_array=(["${T1}"]="${C1}" ["${T2}"]="${C2}"
+                             ["${T3}"]="${C3}" ["${T4}"]="${C4}")
+
+# -------------------------------
+# Function make script executable
+# -------------------------------
+function make_executable {
+    # Assign the function argument to the local variable.
+    scriptname=$1
+    # Make the script executable.
+    if [ -x "${scriptname}" ]; then
+        echo -e "Script is executable!"
+    else
+        echo -e "Script is NOT executable yet!"
+        chmod u+x "${scriptname}"
+    fi
+    # Return the error code 0.
+    return 0
+}
+
+# ---------------------
+# Function print header
+# ---------------------
+header () {
+    # Print the header to the screen.
+    echo -e "\e[44m**********************\e[49m"
+    echo -e "\e[44mEXIF Metadata Analysis\e[49m"
+    echo -e "\e[44m**********************\e[49m\n"
+    # Return the error code 0.
+    return 0
+}
 
 # ------------------------------------------------------------------------------
 # Function gcd
@@ -69,17 +120,22 @@ function get_orientation {
     # Assign the function arguments to the local variables.
     local x=$1
     local y=$2
+    # Set the local page orientation strings.
+    local po_str0="Unknown"
+    local po_str1="None"
+    local po_str2="Landscape"
+    local po_str3="Portrait"
     # Initialise the local variable.
     local orientation="n\a"
-    # Determine the orientation.
+    # Determine the orientation of the image.
     if [ "${y}" -gt "${x}" ]; then
-        orientation="Portrait"
-    elif [ "${x}" -gt "${y}" ]; then
-        orientation="Landscape"
+        orientation="${po_str3}"
+    elif [ "${y}" -lt "${x}" ]; then
+        orientation="${po_str2}"
     elif [ "${x}" -eq "${y}" ]; then
-        orientation="None"
+        orientation="${po_str1}"
     else
-        orientation="Unknown"
+        orientation="${po_str0}"
     fi
     # Output the orientation.
     echo -n "${orientation}"
@@ -95,21 +151,18 @@ function get_resolution {
     local x=$1
     local y=$2
     # Initialise the local variables.
-    resolution="n\a"
+    resolution="Unknown"
+    # Loop over the resolution array.
+    x=-1; y=-1
     # Determine the resolution.
-    if [ "${y}" -ge "${K4}" ] && [ "${x}" -ge "${K4}" ]; then
-        resolution="${associative_array[${K4}]}"
-    elif [ "${y}" -ge "${K3}" ] && [ "${x}" -ge "${K3}" ]; then
-        resolution="${associative_array[${K3}]}"
-    elif [ "${y}" -ge "${K2}" ] && [ "${x}" -ge "${K2}" ]; then
-        resolution="${associative_array[${K2}]}"
-    elif [ "${y}" -ge "${K1}" ] && [ "${x}" -ge "${K1}" ]; then
-        resolution="${associative_array[${K1}]}"
-    elif [ "${y}" -lt "${K1}" ] && [ "${x}" -lt "${K1}" ]; then
-        resolution="None"
-    else
-        resolution="Unknown"
-    fi
+    for i in "${resorders[@]}"
+    do
+        # Check x and y. Leave loop on match.
+        if [ "${y}" -ge "${i}" ] && [ "${x}" -ge "${i}" ]; then
+            resolution="${resarray[${i}]}"
+            break
+        fi
+    done
     # Output the resolution.
     echo -n "${resolution}"
     # Return 0.
@@ -162,6 +215,87 @@ function calc_size {
 }
 
 # ------------------------------------------------------------------------------
+# Function is_wallpaper
+# ------------------------------------------------------------------------------
+function is_wallpaper {
+    # Assign the function arguments to the local variables.
+    local x=$1
+    local y=$2
+    # Initialise the local variables.
+    wp="n\a"
+    # Wallpaper yes/no.
+    if [ "${y}" -ge "${x}" ]; then
+        fac=$(echo "scale=1;(${y}/${x})" | bc)
+    else
+        fac=$(echo "scale=1;(${x}/${y})" | bc)
+    fi
+    if (( $(echo "${fac} > 1.2" | bc -l) )) && (( $(echo "${fac} < 1.8" | bc -l) )); then
+        wp="Yes"
+    else
+        wp="No"
+    fi
+    # Output wallpaper string.
+    echo -n "${wp}"
+    # Return 0.
+    return 0
+}
+
+# ------------------------------------------------------------------------------
+# Function creator_tool
+# ------------------------------------------------------------------------------
+function creator_tool {
+    # Assign the function argument to the local variable.
+    local creatortool=$1
+    # Set the local strings.
+    local ig0="Unknown"
+    local ig1="Stable Diffusion"
+    local ui0="Unknown"
+    local ui1="Easy Diffusion"
+    local ui2="AUTOMATIC1111"
+    # Get AI generator.
+    if [[ "${creatortool}" =~ "${ig0}" ]]; then
+        generator="${ig1}"
+    else
+        generator="${ig0}"
+    fi
+    # Get AI web UI.
+    if [[ "${creatortool}" =~ "${ui2}" ]]; then
+        webui="${ui2}"
+    elif [[ "${creatortool}" =~ "${ui1}" ]]; then
+        webui="${ui1}"
+    else
+        webui="${ui0}"
+    fi
+    # Output engine and webui.
+    echo -n "${generator};${webui}"
+    # Return 0.
+    return 0
+}
+
+# ------------------------------------------------------------------------------
+# Function get_category
+# ------------------------------------------------------------------------------
+function get_category {
+    # Assign the function argument to the local variable.
+    local comment=$1
+    # Set the local variable.
+    local category="Unknown"
+    # Loop over the collection array.
+    for c in "${!collection_array[@]}"
+    do
+        # Check the tag comment. Leave loop on match.
+        if [[ "${comment}" == "${collection_array[${c}]}" ]]; then
+            category="${c}"
+            break
+        fi
+    done
+    # Output category.
+    echo -n "${category}"
+    # Return 0.
+    return 0
+}
+
+# ------------------------------------------------------------------------------
 # Function print_exifdata
 # ------------------------------------------------------------------------------
 function print_exifdata {
@@ -190,20 +324,22 @@ function print_exifdata {
     read -r mib mb < <(calc_size "${filesize}")
     # Calculate the aspect ratio.
     ar=$(aspect_ratio "${xres}" "${yres}")
+    # Wallpaper yes/no.
+    wp=$(is_wallpaper "${xres}" "${yres}")
+    # Get AI generator an AI web UI.
+    IFS=";" read -r engine webui < <(creator_tool "${creatortool}")
     # Determine the image oriantation.
     io=$(get_orientation "${xres}" "${yres}")
     # Determine the image resolution.
     ir=$(get_resolution "${xres}" "${yres}")
     # Get category.
-    if [[ "${comment}" == "Fantastic Mushroom Collection" ]]; then
-        category="Mushroom"
-    else
-        category="Unknown"
-    fi
+    category=$(get_category "${comment}")
     # Print the summery into the terminal window.
     fmtstr="%-28s%s%b"
     printf "${fmtstr}" "Filename:" "${fn}" "\n"
     printf "${fmtstr}" "MD5 Hash:" "${hash}" "\n"
+    printf "${fmtstr}" "AI Generator (EVAL):" "${engine}" "\n"
+    printf "${fmtstr}" "AI Web UI (EVAL):" "${webui}" "\n"
     printf "${fmtstr}" "Category (EVAL):" "${category}" "\n"
     printf "${fmtstr}" "Copyright (EXIF):" "${copyright}" "\n"
     printf "${fmtstr}" "Creator: (EXIF)" "${creator}" "\n"
@@ -222,6 +358,7 @@ function print_exifdata {
     printf "${fmtstr}" "Aspect Ratio (CALC):" "${ar}" "\n"
     printf "${fmtstr}" "Orientation (EVAL):" "${io}" "\n"
     printf "${fmtstr}" "Resolution: (EVAL)" "${ir}" "\n"
+    printf "${fmtstr}" "Wallpaper: (CALC)" "${wp}" "\n"
     # Return 0.
     return 0
 }
@@ -230,11 +367,23 @@ function print_exifdata {
 # Main script section
 # +++++++++++++++++++++++++++++
 
+# Get the name of this script.
+SCRIPTNAME=$(basename "$0")
+
+# Make this script executable.
+make_executable "${SCRIPTNAME}"
+
 # Clear the screen
 clear
 
+# Call function header.
+header
+
 # Extract and print the EXIF metadata.
 print_exifdata "${FN}"
+
+# Print a farewell message.
+echo -e "\nHave a nice day. Bye!"
 
 # Exit the script.
 exit 0
