@@ -28,5 +28,6 @@ NFT  | Non-Fungible Token
 # Glossary
 
 Denotation | Description
-:-----|:-------------------------------------------|
-Trait | A Trait describes a attributes of your item 
+:-----|:---------------------------------------------------------------------------------------------------------------------|
+Trait | A Trait describes an attribute of an item and consists of Type and Name. E.g. Type is Size and Name is Large or Small  
+
