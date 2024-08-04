@@ -6,7 +6,7 @@
 # shellcheck disable=SC2034
 #
 # Extract exif metadata from image.
-# Version 0.0.1.1
+# Version 0.0.1.2
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -313,6 +313,14 @@ function print_exifdata {
     ft=$(exiftool -filetype -s3 "${fn}")
     fte=$(exiftool -filetypeextension -s3 "${fn}")
     mt=$(exiftool -mimetype -s3 "${fn}")
+    # Check extension.
+    if [ "${extension,,}" != "${fte,,}" ]; then
+        echo -e "\e[41mWARNING! Extension mismatch!\e[49m\n"
+    fi
+    # Check md5 hash.
+    if [ "${hash,,}" != "${filename,,}" ]; then
+        echo -e "\e[41mWARNING! MD5 hash mismatch!\e[49m\n"
+    fi
     # Get the width and height of the image.
     xres=$(exiftool -imagewidth -s3 "${fn}")
     yres=$(exiftool -imageheight -s3 "${fn}")
@@ -327,8 +335,8 @@ function print_exifdata {
     # Get the filesize and the image size of the image.
     filesize=$(exiftool -filesize -s3 "${fn}")
     megapixels=$(exiftool -megapixels -s3 "${fn}")
-    imagesize=$(exiftool -imagesize -s3 "${fn}" | sed 's/x/ x /')
-    imagesize_ra="${xres} x ${yres}"
+    imagesize0=$(exiftool -imagesize -s3 "${fn}" | sed 's/x/ x /')
+    imagesize1="${xres} x ${yres}"
     # Calculate MiB and MB.
     read -r mib mb < <(calc_size "${filesize}")
     # Calculate the aspect ratio.
@@ -367,9 +375,9 @@ function print_exifdata {
     printf "${fmtstr}" "Image Width (EXIF):" "${xres}" "\n"
     printf "${fmtstr}" "Image Height (EXIF):" "${yres}" "\n"
     if [ "${imagesize}" != "${imagesize_ra}" ]; then
-        printf "${fmtstr}" "Image Size (EVAL):" "${imagesize_ra} pixel" "\n"
+        printf "${fmtstr}" "Image Size (EVAL):" "${imagesize1} pixel" "\n"
     fi
-    printf "${fmtstr}" "Image Size (EXIF):" "${imagesize} pixel" "\n"
+    printf "${fmtstr}" "Image Size (EXIF):" "${imagesize0} pixel" "\n"
     printf "${fmtstr}" "Aspect Ratio (CALC):" "${ar}" "\n"
     printf "${fmtstr}" "Orientation (EVAL):" "${io}" "\n"
     printf "${fmtstr}" "Resolution: (EVAL)" "${ir}" "\n"
@@ -383,7 +391,7 @@ function print_exifdata {
 # +++++++++++++++++++++++++++++
 
 # Get exittool version
-EXIFTOOL_VERSION=$(exiftool 06b4fb4b3a3156ed0d00f82394c2fb43.jpg | \
+EXIFTOOL_VERSION=$(exiftool "${FN}" | \
                    grep "ExifTool Version Number" | \
                    awk -F ' : ' '{print $2}')
 
