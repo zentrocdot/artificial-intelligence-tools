@@ -2,9 +2,11 @@
 # shellcheck disable=SC1083
 # shellcheck disable=SC2155
 # shellcheck disable=SC2059
+# shellcheck disable=SC2076
+# shellcheck disable=SC2034
 #
 # Extract exif metadata from image.
-# Version 0.0.0.9
+# Version 0.0.1.1
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -43,8 +45,9 @@ S1="Low"
 S0="Not Allowed"
 
 # Declare the associative array for key and value pairs of the resolutions.
-declare -A resarray=(["${R4}"]="${S4}" ["${R3}"]="${S3}" ["${R2}"]="${S2}"
-                     ["${R1}"]="${S1}" ["${R0}"]="${S0}")
+declare -A resarray=(["${R4}"]="${S4}" ["${R3}"]="${S3}"
+                     ["${R2}"]="${S2}" ["${R1}"]="${S1}"
+                     ["${R0}"]="${S0}")
 # Declare the orders array for the resolutions. Keeps the order of the associative array.
 declare -a resorders=("${R4}" "${R3}" "${R2}" "${R1}" "${R0}")
 
@@ -282,7 +285,7 @@ function get_category {
     for c in "${!collection_array[@]}"
     do
         # Check the tag comment. Leave loop on match.
-        if [[ "${comment}" == "${collection_array[${c}]}" ]]; then
+        if [[ "${usercomment}" == "${collection_array[${c}]}" ]]; then
             category="${c}"
             break
         fi
@@ -301,6 +304,11 @@ function print_exifdata {
     local fn=$1
     # Get the md5 hash value for the file.
     local hash=$(md5sum "${fn}" | awk '{print $1}')
+    # Get basename and extension.
+    filename="${fn%.*}"
+    extension="${fn##*.}"
+    # Get EXIF version.
+    exifversion=$(exiftool -exifversion -s3 "${fn}")
     # Get filetype.
     ft=$(exiftool -filetype -s3 "${fn}")
     fte=$(exiftool -filetypeextension -s3 "${fn}")
@@ -315,9 +323,12 @@ function print_exifdata {
     # Get the informations from the comment tags.
     comment=$(exiftool -comment -s3 "${fn}")
     usercomment=$(exiftool -usercomment -s3 "${fn}")
+    imagedescription=$(exiftool -imagedescription -s3 "${fn}")
     # Get the filesize and the image size of the image.
     filesize=$(exiftool -filesize -s3 "${fn}")
+    megapixels=$(exiftool -megapixels -s3 "${fn}")
     imagesize=$(exiftool -imagesize -s3 "${fn}" | sed 's/x/ x /')
+    imagesize_ra="${xres} x ${yres}"
     # Calculate MiB and MB.
     read -r mib mb < <(calc_size "${filesize}")
     # Calculate the aspect ratio.
@@ -334,8 +345,11 @@ function print_exifdata {
     category=$(get_category "${comment}")
     # Print the summery into the terminal window.
     fmtstr="%-28s%s%b"
-    printf "${fmtstr}" "Filename:" "${fn}" "\n"
-    printf "${fmtstr}" "MD5 Hash:" "${hash}" "\n"
+    printf "${fmtstr}" "ExifTool Version:" "${EXIFTOOL_VERSION}" "\n"
+    printf "${fmtstr}" "Exif Version:" "${exifversion}" "\n\n"
+    printf "${fmtstr}" "Filename (ARG):" "${fn}" "\n"
+    printf "${fmtstr}" "MD5 Hash (CALC):" "${hash}" "\n\n"
+    printf "${fmtstr}" "Image Description (EXIF):" "${imagedescription}" "\n"
     printf "${fmtstr}" "AI Generator (EVAL):" "${engine}" "\n"
     printf "${fmtstr}" "AI Web UI (EVAL):" "${webui}" "\n"
     printf "${fmtstr}" "Category (EVAL):" "${category}" "\n"
@@ -349,10 +363,13 @@ function print_exifdata {
     printf "${fmtstr}" "Mime Type (EXIF):" "${mt}" "\n"
     printf "${fmtstr}" "File Size (MiB):" "${mib} MiB" "\n"
     printf "${fmtstr}" "File Size (MB):" "${mb} MB" "\n"
+    printf "${fmtstr}" "Megapixels (EXIF):" "${megapixels}" "\n"
     printf "${fmtstr}" "Image Width (EXIF):" "${xres}" "\n"
     printf "${fmtstr}" "Image Height (EXIF):" "${yres}" "\n"
+    if [ "${imagesize}" != "${imagesize_ra}" ]; then
+        printf "${fmtstr}" "Image Size (EVAL):" "${imagesize_ra} pixel" "\n"
+    fi
     printf "${fmtstr}" "Image Size (EXIF):" "${imagesize} pixel" "\n"
-    printf "${fmtstr}" "Image Size (EVAL):" "${xres} x ${yres} pixel" "\n"
     printf "${fmtstr}" "Aspect Ratio (CALC):" "${ar}" "\n"
     printf "${fmtstr}" "Orientation (EVAL):" "${io}" "\n"
     printf "${fmtstr}" "Resolution: (EVAL)" "${ir}" "\n"
@@ -364,6 +381,11 @@ function print_exifdata {
 # +++++++++++++++++++++++++++++
 # Main script section
 # +++++++++++++++++++++++++++++
+
+# Get exittool version
+EXIFTOOL_VERSION=$(exiftool 06b4fb4b3a3156ed0d00f82394c2fb43.jpg | \
+                   grep "ExifTool Version Number" | \
+                   awk -F ' : ' '{print $2}')
 
 # Get the name of this script.
 SCRIPTNAME=$(basename "$0")
