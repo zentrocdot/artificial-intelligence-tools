@@ -4,6 +4,12 @@
 
 # Bash Scripts
 
+## <code>sd_aspect_ratio.bash</code>
+
+### Explanation
+
+<p align="justify">The script calculates a valid resolution in pixel based on a given aspect ratio. The lowest possible value for width and height of an image is 512 pixel. If one of these two sizes is smaller than 512 pixel the AI generator may have problems to create an image of desired quality.</p> 
+
 ## <code>analyse_exif_metadata.bash</code>
 
 ### Explanation
