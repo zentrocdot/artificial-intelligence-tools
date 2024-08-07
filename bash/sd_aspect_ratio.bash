@@ -3,7 +3,7 @@
 # shellcheck disable=SC2068
 #
 # Calculate the valid resolution related to a given aspect ratio
-# Version 0.0.0.5
+# Version 0.0.0.6
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -36,9 +36,10 @@ AR=$1
 # Function quit
 # +++++++++++++
 quit () {
-    # Write a message into the terminal window.
+    # Set the message strings.
     STR0="Wrong format of the given aspect ratio. Exit the script. Bye!"
     STR1="Use a format for the aspect ratio like 1:1, 4:5 or 16:10 etc."
+    # Write a message into the terminal window.
     echo -e "${STR0}"
     echo -e "${STR1}"
     # Exit the script with error code 1.
@@ -58,7 +59,7 @@ WIDTH=$(echo "${AR}" | awk -F ':' '{print $1}')
 HEIGHT=$(echo "${AR}" | awk -F ':' '{print $2}')
 
 # Check if HEIGHT or WIDTH are allowed.
-if [ "${WIDTH}" -le 0 ] || ["${HEIGHT}" -le 0 ]; then
+if [ "${WIDTH}" -le 0 ] || [ "${HEIGHT}" -le 0 ]; then
     # Quit the script.
     quit
 fi
@@ -71,11 +72,11 @@ declare -a BASE_LENS="128 192 256 320 384 448 512 576 640 704 768 832
 declare -a VALID_LENS="512 576 640 704 768 832 896 960 1024
                        1152 1280 1536 1792 2048 2304 4096"
 
-# -------------------_------
+# --------------------------
 # Function lowest_resolution
 # --------------------------
 lowest_resolution () {
-    # Get x and y from function argument.
+    # Get x and y from the function argument.
     local x=$1
     local y=$2
     # Calculate a valid resolution if possible.
@@ -98,15 +99,6 @@ lowest_resolution () {
 # Main script section
 # +++++++++++++++++++
 
-# Clear the screen.
-clear
-
-# Print a message into the terminal window.
-echo -e "Calculate the Lowest Valid Resolution from the Aspect Ratio\n"
-
-# Print the aspect artio into the terminal window.
-echo -e "Aspect Ratio: ${AR}"
-
 # Set x and y based on height and width.
 if [ "${HEIGHT}" -lt "${WIDTH}" ]; then
     x="${WIDTH}"
@@ -116,21 +108,36 @@ else
     y="${WIDTH}"
 fi
 
-# Get nx and ny from subroutine.
+# Get new nx and new ny from subroutine.
 read -r nx ny < <(lowest_resolution "${x}" "${y}")
 
-# Check size of original height and original width.
+# Check the size of original height and original width.
 if [ "${nx}" == "" ] && [ "${ny}" == "" ]; then
-    # If no resolution could be calculated print the original one.
-    echo -e "Resolution: ${WIDTH} x ${HEIGHT} pixel"
+    # If no resolution could be calculated previously use the original one.
+    ox="${WIDTH}"
+    oy="${HEIGHT}"
 else
-    # Print the result based on the original orientation.
+    # Use the result based on the original orientation.
     if [ "${HEIGHT}" -lt "${WIDTH}" ]; then
-        echo -e "Resolution: ${nx} x ${ny} pixel"
-    else
-        echo -e "Resolution: ${ny} x ${nx} pixel"
+        ox="${nx}"
+        oy="${ny}"
+    elif [ "${HEIGHT}" -gt "${WIDTH}" ]; then
+        ox="${ny}"
+        oy="${nx}"
     fi
 fi
+
+# Clear the screen.
+clear
+
+# Print a message into the terminal window.
+echo -e "Calculate the Lowest Valid Resolution from the Aspect Ratio\n"
+
+# Print the aspect artio into the terminal window.
+echo -e "Aspect Ratio Input: ${AR}"
+
+# Print the result based on the evaluation process.
+echo -e "Proposed Resolution: ${ox} x ${oy} pixel"
 
 # Print farewell message.
 echo -e "\nHave a nice day. Bye!"
