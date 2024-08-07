@@ -3,7 +3,7 @@
 # shellcheck disable=SC2068
 #
 # Calculate the valid resolution related to a given aspect ratio
-# Version 0.0.0.1
+# Version 0.0.0.2
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -41,6 +41,7 @@ declare -a valid_lens="512 576 640 704 768 832 896 960 1024
 
 # Check the format of theinput.
 if ! [[ ${ar} =~ ^[0-9]+:[0-9]+$ ]]; then
+    # Write a message into the terminal window.
     echo -e "Wrong format of the given aspect ratio. Exit the script. Bye!"
     echo -e "Use a format for the aspect ratio in the form 1:1, 3:2, 4:5 or 16:10 and so on."
     # Exit the script with error code 1.
@@ -53,17 +54,18 @@ width=$(echo "${ar}" | awk -F ':' '{print $1}')
 # Get the factor for the height from the aspect ratio.
 height=$(echo "${ar}" | awk -F ':' '{print $2}')
 
-# Check size of height and width.
+# Check the size of height and width.
 if [ "${height}" -lt "${width}" ]; then
-    y="${height}"
     x="${width}"
+    y="${height}"
 else
     x="${height}"
     y="${width}"
 fi
 
-# Calculate modulo of valid lens by y.
+# Calculate a valid resolution if possible.
 for l in ${valid_lens[@]}; do
+    # Calculate the lowest valid resolution.
     if [ $((l%y)) -eq 0 ]; then
         ny=$l
         div=$(echo "scale=0;$l/$y" | bc)
@@ -72,7 +74,7 @@ for l in ${valid_lens[@]}; do
     fi
 done
 
-# Print farewell message.
+# Print a message into the terminal window.
 echo -e "Calculate Resolution from Aspect Ratio"
 
 # Print the aspect artio into the terminal window.
