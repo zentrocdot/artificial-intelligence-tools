@@ -8,7 +8,9 @@
 
 ### Explanation
 
-<p align="justify">The script calculates a valid resolution in pixel based on a given aspect ratio. The lowest possible value for width and height of an image is 512 pixel. If one of these two sizes is smaller than 512 pixel the AI generator may have problems to create an image of desired quality.</p> 
+<p align="justify">The script calculates a valid resolution in pixel based on a given aspect ratio. The lowest possible value for width and height of an image is 512 pixel. If one of these two sizes is smaller than 512 pixel the AI generator may have problems to create an image of desired quality. Since the Easy Diffusion values are divisible by 8, they result in meaningful values based on the binary number system. This way I using the preset values from Easy Diffusion to try to calculate a valid resolution in pixel.</p> 
+
+<p align="justify">Easy diffusion has preset values for width and height, while AUTOMATIC1111 knows such a limitation not.</p> 
 
 ## <code>analyse_exif_metadata.bash</code>
 
