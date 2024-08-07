@@ -6,7 +6,7 @@
   
 <p align="justify">Some time ago I started to use AI for image generation. This is an extension of my ability to use photos, image graphics, pixel graphics and vector graphics. I create Non-Fungible Token (NFT) for myself from some selected AI-generated images.</p> 
 
-<p align="justify">This repository contains scripts or programs that I am using to simplify my work both in generating AI images and minting NFTs.</p> 
+<p align="justify">This repository contains the scripts or the programs that I am using to simplify my work both in generating AI images and minting NFTs. Some of these tools can also be used by other users without further modification. Other tools are also intended as suggestions for other users' own developments.</p> 
 
 ## Software in Use
 
