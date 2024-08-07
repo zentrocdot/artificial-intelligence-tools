@@ -12,8 +12,8 @@
 # image dimensions width and height. The lowest value for width or height
 # should not be less than 512. Based on this knowledge a valid resolution
 # can be calculated if the aspect ratio is given. The related smallest
-# resolution is returned to the given aspect ratio. Only integr values are
-# alloed as numbers in the aspect ratio string.
+# resolution is returned to the given aspect ratio. Only integer values
+# are allowed as numbers in the aspect ratio string.
 #
 # Prerequisites
 # Installation of bc
