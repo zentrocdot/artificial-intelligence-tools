@@ -41,8 +41,8 @@ declare -a valid_lens="512 576 640 704 768 832 896 960 1024
 
 # Check the format of theinput.
 if ! [[ ${ar} =~ ^[0-9]+:[0-9]+$ ]]; then
-    echo -e "Wrong format of the given aspect ratio! Exit the script! Bye!"
-    echo -e "Wrong format of the given aspect ratio! Exit the script! Bye!"
+    echo -e "Wrong format of the given aspect ratio. Exit the script. Bye!"
+    echo -e "Use a format for the aspect ratio in the form 1:1, 3:2, 4:5 or 16:10 and so on."
     # Exit the script with error code 1.
     exit 128
 fi
