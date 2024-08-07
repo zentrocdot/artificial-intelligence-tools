@@ -2,11 +2,17 @@
 
 ## Introductory Words
 
-<p align="justify">This is a new created repository for my <it>Artificial Intelligence</it> (AI) tools. At the moment one can only find some <code>Bash</code> scripts in this repository. In the future one will find also <code>Python</code> scripts in it. I already have use cases for <code>Python</code>, but I haven't had the time to delve into them yet. Some time ago I started to use AI for image generation. This is an extension of my ability to use photos, image graphics, pixel graphics and vector graphics. I create Non-Fungible Token (NFT) for myself from some selected AI-generated images. This repository contains scripts or programs that I am using to simplify my work both in generating AI images and minting NFTs.</p> 
+<p align="justify">This is a new created repository for my <it>Artificial Intelligence</it> (AI) tools. At the moment one can only find some <code>Bash</code> scripts in this repository. In the future one will find also <code>Python</code> scripts in it. I already have use cases for <code>Python</code>, but I haven't had the time to delve into them yet.</p>  
+  
+<p align="justify">Some time ago I started to use AI for image generation. This is an extension of my ability to use photos, image graphics, pixel graphics and vector graphics. I create Non-Fungible Token (NFT) for myself from some selected AI-generated images. This repository contains scripts or programs that I am using to simplify my work both in generating AI images and minting NFTs.</p> 
 
 ## Software in Use
 
-<p align="justify">I am currently using <code>Stable Diffusion</code> [3] as AI Generator and <code>Easy Diffusion</code> [2] and <code>AUTOMATIC1111</code> [1] as AI Web UI.</p>  
+<p align="justify">I am currently using <code>Stable Diffusion</code> [3] as AI Generator and <code>Easy Diffusion</code> [2] and <code>AUTOMATIC1111</code> [1] as AI Web UI.</p> 
+
+<p align="justify">I started my journey into the world of AI image generation with Easy Diffusion. At the moment I am using AUTOMATIC1111 and I am impressed by the possibilities it offers.</p>
+
+<p align="justify">In the near future I will test other tools as well. For the moment, however, I have by no means exhausted the possibilities offered by AUTOMATIC1111.</p>
 
 # References
 
