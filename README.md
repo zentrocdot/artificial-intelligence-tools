@@ -10,7 +10,7 @@
 
 ## Software in Use
 
-<p align="justify">I am currently using <code>Stable Diffusion</code> [3] as AI Generator and <code>Easy Diffusion</code> [2] and <code>AUTOMATIC1111</code> [1] as AI Web UI.</p> 
+<p align="justify">I am currently using <code>Stable Diffusion</code> [3] as AI Generator and <code>Easy Diffusion</code> [2] and <code>AUTOMATIC1111</code> [1] as AI Web UI. <code>Stable Diffusion</code> acts as server and the Web UI is the interface to the server.</p> 
 
 <p align="justify">I started my journey into the world of AI image generation with Easy Diffusion. At the moment I am using AUTOMATIC1111 and I am impressed by the possibilities it offers.</p>
 
