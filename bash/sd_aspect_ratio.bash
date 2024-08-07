@@ -8,7 +8,7 @@
 # Published under the MIT license.
 #
 # Description:
-# In Stable Diffsuion a number of values are allowed or preferred for the
+# In Stable Diffusion a number of values are allowed or preferred for the
 # image dimensions width and height. The lowest value for width or height
 # should not be less than 512. Based on this knowledge a valid resolution
 # can be calculated if the aspect ratio is given. The related smallest
