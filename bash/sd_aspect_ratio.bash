@@ -3,7 +3,7 @@
 # shellcheck disable=SC2068
 #
 # Calculate the valid resolution related to a given aspect ratio
-# Version 0.0.0.2
+# Version 0.0.0.3
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
 #
@@ -67,9 +67,9 @@ fi
 for l in ${valid_lens[@]}; do
     # Calculate the lowest valid resolution.
     if [ $((l%y)) -eq 0 ]; then
-        ny=$l
-        div=$(echo "scale=0;$l/$y" | bc)
-        nx=$(echo "scale=0;$x*$div" | bc)
+        ny="${l}"
+        div=$(echo "scale=0;${ny}/${y}" | bc)
+        nx=$(echo "scale=0;${x}*${div}" | bc)
         break
     fi
 done
