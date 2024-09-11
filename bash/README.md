@@ -12,92 +12,9 @@
 
 <p align="justify">Easy diffusion has preset values for width and height, while AUTOMATIC1111 knows such a limitation not.</p> 
 
-## <code>analyse_exif_metadata.bash</code>
-
-### Explanation
-
-<p align="justify">The task of the script <code>analyse_exif_metadata.bash</code> is to analyse the EXIF metadata in an given image. On the one hand, the script should ensure that the correct EXIF metadata is contained in the image before publication as NFT. On the second hand, the extracted, determined and calculated data is required in the publishing process as NFT.</p> 
-
-<p align="justify">To mine an NFT, you need e.g. a local installation or you can use an Internet service like OpenSea [1] or Rarible [2]. The first involves a lot of effort. The second is quick and easy. An NFT consists of two parts, a contract on the blockchain and an image to be stored externally. If one use OpenSea or Rarible and prepare an NFT for minting in the related Web UI, then one needs next to Collection, Name and Supply the so-called Traits to describe the image.</p> 
-
-<p align="justify">The script <code>analyse_exif_metadata.bash</code> extracts, determines and calculates data, which can be used for the previously described Traits.</p>
-
-Some of my traits are:
-- Category (e.g. Avatar, Vehicle, Mushroom)
-- Orientation (e.g. Portrait, Landscape or None)
-- Aspect Ratio (e.g. 2:3, 19:9, 1:1)
-- Wallpaper (e.g. Yes, No or Unknown)
-
-<p align="justify">Category will be extracted from my EXIF metadata. Orientation is derived from the data. Aspect Ratio values and Wallpaper string are calculated.</p>  
-
-### Sample Printout
-
-An example printout looks like this
-
-<pre>
-**********************
-EXIF Metadata Analysis
-**********************
-
-Filename:                   0f8acf268f58060702f32ef0d51bcfb4.jpeg
-MD5 Hash:                   0f8acf268f58060702f32ef0d51bcfb4
-AI Generator (EVAL):        Stable Diffusion
-AI Web UI (EVAL):           AUTOMATIC1111
-Category (EVAL):            Mushroom
-Copyright (EXIF):           2024, zentrocdot
-Creator: (EXIF)             zentrocdot
-Creator Tool (EXIF):        AI Generator Stable Diffusion, AI WebUI AUTOMATIC1111
-Comment (EXIF):             Fantastic Mushroom Collection
-User Comment (EXIF):        Selected image for minting as NFT
-File Type (EXIF):           JPEG
-File Type Extension (EXIF): jpg
-Mime Type (EXIF):           image/jpeg
-File Size (MiB):            3.5 MiB
-File Size (MB):             3.7 MB
-Image Width (EXIF):         8192
-Image Height (EXIF):        4608
-Image Size (EXIF):          8192 x 4608 pixel
-Image Size (EVAL):          8192 x 4608 pixel
-Aspect Ratio (CALC):        16:9
-Orientation (EVAL):         Landscape
-Resolution: (EVAL)          High
-Wallpaper: (CALC)           Yes
-
-Have a nice day. Bye!</pre>
-
-<p align="justify">The previous printout shows an open problem I have. File type, file type extension and mime type are inconsistent using <code>exiftool</code>. This has to be checked.</p>
-
-<p align="justify">Technically speaking, JPG and JPEG are exactly the same thing.</p>
-
-### Side Note
-
-<p align="justify">Stable Diffusion uses the file type extension .jpeg for writing images. After upload to the IPFS, the image has the file type extension .jpg.</p>
-
-### TO-DO
-
-<p align="justify">Extracting of the file type extension from the file name and comparing this extension with the EXIF meta data. Checking if the MD5 hash is the (file) name without file type extension. On mismatch write an error to the terminal. Extract Encoding Process and Megapixels for documentation purposes. Extracting ExifTool Version Number and Exif Version.</p>
-
-### Special Features
-
-<p align="justify">I used the first time an ordered associative array in a <code>Bash</code> script. By default an associative array is unordered. by using a trick one can use an unordered associative array as ordered associative array.</p>
-
-<p align="justify">The aspect ratio of a given image is calculatied using the greatest common divisor of width and height of the image.</p>
-
-<p align="justify">If the aspect ratio <it>x:y</it> is in a range of 1.2 upt to 1.8, where  <it>x</it> is the large value and  <it>y</it> is the small value, it is calculated if the image can be used as wallpaper.</p>
-
-### Final Remark
-
-<p align="justify">The script is in a way written, that it can easily be adapted to the needs of another user.</p>
-
 ## <code>aspect_ratio.bash</code>
 
 <p align="justify">The script <code>aspect_ratio.bash</code> calculates the aspect ratio of a given image using the greatest common divisor.</p>
-
-# References
-
-[1] [OpenSea](https://opensea.io/)
-
-[2] [Rarible](https://rarible.com/)
 
 # Abbreviations
 
