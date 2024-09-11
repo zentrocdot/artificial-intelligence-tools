@@ -2,6 +2,8 @@
 ''' Structured reading and writing data from .pt file.'''
 #
 # Version 0.0.0.1
+# Copyright © 2024, Dr. Peter Netz
+# Published under the MIT license.
 #
 # pylint: disable=wrong-import-position
 # pylint: disable=consider-using-sys-exit
