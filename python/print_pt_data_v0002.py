@@ -1,7 +1,7 @@
 #!/usr/bin/python
 ''' Structured reading and writing data from .pt file.'''
 #
-# Version 0.0.0.1
+# Version 0.0.0.2
 #
 # pylint: disable=wrong-import-position
 # pylint: disable=consider-using-sys-exit
