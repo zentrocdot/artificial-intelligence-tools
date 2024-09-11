@@ -2,9 +2,9 @@
 
 ## Introductory Words
 
-<p align="justify">This is a new created repository for my <it>Artificial Intelligence</it> (AI) tools. At the moment one can only find some <code>Bash</code> scripts in this repository. In the future one will find also <code>Python</code> scripts in it. I already have use cases for <code>Python</code>, but I haven't had the time to delve into them yet.</p>  
+<p align="justify">This is a new created repository for my <it>Artificial Intelligence</it> (AI) tools. At the moment one can only find a <code>Bash</code> folder and a  <code>Python</code> folder in the repository. In the misc folder there are some helper tools for myself.</p>  
   
-<p align="justify">Some time ago I started to use AI for image generation. This is an extension of my ability to use photos, image graphics, pixel graphics and vector graphics. I create Non-Fungible Token (NFT) for myself from some selected AI-generated images.</p> 
+<p align="justify">Some time ago I started to use AI for image generation. This is an extension of my ability to use photos, image graphics, pixel graphics and vector graphics. I create sometimes Non-Fungible Token (NFT) for myself from some selected AI-generated images.</p> 
 
 <p align="justify">This repository contains the scripts or the programs that I am using to simplify my work both in generating AI images and minting NFTs. Some of these tools can also be used by other users without further modification. Other tools are also intended as suggestions for other users' own developments.</p> 
 
