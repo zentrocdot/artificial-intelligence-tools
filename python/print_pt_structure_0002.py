@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-'''Simple printout of pt structure.'''
+'''Simple printout of .pt structure.'''
 #
-# Simple printout of pt structure
+# Simple printout of .pt structure
 # Version 0.0.0.2
+# Copyright © 2024, Dr. Peter Netz
+# Published under the MIT license.
+# https://github.com/zentrocdot/artificial-intelligence-tools/blob/main/LICENSE
 
 # Import standard Python modules.
 import sys
