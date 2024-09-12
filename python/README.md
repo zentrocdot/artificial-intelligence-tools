@@ -1,8 +1,8 @@
-# README
+# IOntroductory Words
 
 <p align="justify">Python scripts I am presenting here, help me to prepare Generative Artificial Intelligence stuff. For the moment I am interested in high quality static AI generated images. These are created using common models, as well as LoRas, Embeddings and Hypernetworks.</p>
 
-# DONATION
+# Support my Work
 
 <p align="justify">If you like what I am presenting, there are several ways to support me. One way is buying one of my unique NFTs. The can beo e.g. found on OpenSea. :smiley:</p>
 
