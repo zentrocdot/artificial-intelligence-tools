@@ -2,6 +2,9 @@
 ''' Structured reading and writing data from .pt file.'''
 #
 # Version 0.0.0.2
+# Copyright © 2024, Dr. Peter Netz
+# Published under the MIT license.
+# https://github.com/zentrocdot/artificial-intelligence-tools/blob/main/LICENSE
 #
 # pylint: disable=wrong-import-position
 # pylint: disable=consider-using-sys-exit
