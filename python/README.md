@@ -1,4 +1,4 @@
-<p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are welcome to donate a small contribution or a cup of coffee. Or as you might say: Every TRON counts! Many thanks in advance! :smiley:</p>
+<p align="justify">If you like what I present here, or if it helps you, or if it is useful, you are welcome to donate a small contribution or a cup of coffee. :smiley:</p>
 <hr width="100%" size="2">
 
 <p align="center">I loved the time when you could get also a hamburger :hamburger: for one euro!</p>
