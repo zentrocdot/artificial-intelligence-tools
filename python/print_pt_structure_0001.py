@@ -7,7 +7,6 @@ import zipfile
 
 # Set filename.
 PT_FILE = "embedding_file_name.pt"
-PT_FILE = "hack.pt"
 
 # Open file for reading.
 with zipfile.ZipFile(PT_FILE, mode="r") as archive:
