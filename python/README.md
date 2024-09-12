@@ -4,7 +4,7 @@
 
 # Support my Work
 
-<p align="justify">If you like what I am presenting, there are several ways to support me. One way is buying one of my unique NFTs. The can beo e.g. found on OpenSea. :smiley:</p>
+<p align="justify">If you like what I am presenting, there are several ways to support me. One way is buying one of my unique NFTs. They can be found e.g. at OpenSea. :smiley:</p>
 
 https://opensea.io/collection/fantastic-mushroom-collection
 
