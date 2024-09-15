@@ -35,13 +35,13 @@ FILENAME = sys.argv[1]
 INDENT=4
 
 # Create a lambda function for fast clearing the screen.
-clear_screen = lambda : print("\033[H\033[J", end="")
+clear = lambda : print("\033[H\033[J", end="")
 
 # Main script function.
 def main(filename: str) -> None:
     '''Main script function.'''
     # Clear the terminal window.
-    clear_screen()
+    clear()
     # Open file for reading as binary.
     with open(filename, "rb") as f:
         # Get the length of the header.
