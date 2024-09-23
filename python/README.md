@@ -1,6 +1,6 @@
 # Introductory Words
 
-<p align="justify">Python scripts I am presenting here, help me to prepare Generative Artificial Intelligence stuff. For the moment I am interested in high quality static AI generated images. These are created using common models, as well as LoRas, Embeddings and Hypernetworks.</p>
+<p align="justify">Python scripts I am presenting here, help me to prepare Generative Artificial Intelligence stuff. For the moment I am interested in high quality static AI generated images. These are created using common models, as well as LoRas, Embeddings and Hypernetworks. So far I tested also DreamBooth, but I am not conficed about the results.</p>
 
 # Support my Work
 
