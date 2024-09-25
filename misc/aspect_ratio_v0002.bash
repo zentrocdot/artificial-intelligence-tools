@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 #
 # Determine the aspect ratio of an image
-# Version 0.0.0.1
+# Version 0.0.0.2
 # Copyright © 2024, Dr. Peter Netz
 # Published under the MIT license.
-# github.com/zentrocdot/Bash_Programming/tree/main?tab=MIT-1-ov-file
+# github.com/zentrocdot/artificial-intelligence-tools/blob/main/LICENSE
 #
 # Description:
 # The greatest common divisor (gcd) is used to determine the aspect ratio
@@ -17,15 +17,15 @@
 # de.wikipedia.org/wiki/Bildauflösungen_in_der_Digitalfotografie
 
 # Initialise the values of the resolutions.
-XRES=${1:-5184}
-YRES=${2:-3456}
+XRES="${1}"
+YRES="${2}"
 
 # Set reg exp string.
 re='^[0-9]+$'
 
-# Check XRES and YRES using reg exp.
+# Check XRES and YRES using the reg exp string.
 if ! [[ ${XRES} =~ $re ]] || ! [[ ${YRES} =~ $re ]]; then
-   echo "ERROR. Not a number." >&2; exit 1
+   echo "ERROR. Not a Number." >&2; exit 1
 fi
 
 # ############
@@ -56,9 +56,6 @@ function gcd () {
 
 # Call the function:
 GCD=$(gcd "${XRES}" "${YRES}")
-
-# Print the gcd.
-#echo -e "GCD: ${gcd}"
 
 # Calculate the aspect ratio.
 x=$((XRES/GCD))
