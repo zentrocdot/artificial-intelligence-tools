@@ -32,13 +32,11 @@
 #     }"
 #   }
 #
-# First 8 bytes as unsigned little-endian 64-bit integer containing the size of the header as n
+# First 8 bytes as unsigned little-endian 64-bit integer containing the size of the header as number n
 # n bytes of header data in utf-8 encoded JSON format
-# p bytes as padding in form of space characters (each 1 byte) up to the next 8 byte block (???)
 # m bytes of tensor data
 #
 # Side Note on Structure:
-# Header:   header size [in bytes] + padding size [in bytes]) % 8 == 0
 # Metadata: metadata is saved in the header as JSON using the special key "__metadata__"
 #
 # Reference:
