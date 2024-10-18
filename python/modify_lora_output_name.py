@@ -54,7 +54,7 @@ import shutil
 from typing import BinaryIO
 
 # Set the filename without extension.
-FN = "AppleBottle_v11-1"
+FN = "AppleBottle_v11"
 
 # Set Extension.
 EXT = ".safetensors"
